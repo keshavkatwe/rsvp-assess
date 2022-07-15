@@ -2,16 +2,11 @@
   "name": "rsvp",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/jest-dom": "^5.16.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "commit": "cz",
     "prepare": "husky install"
   },
@@ -33,6 +28,12 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
@@ -47,6 +48,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
@@ -63,6 +65,25 @@
     }
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "src/**/*": [
+      "eslint --cache --fix",
+      "prettier --write --ignore-unknown"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.*",
+      "!src/index.tsx",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/path/to/dir/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
   }
 }
