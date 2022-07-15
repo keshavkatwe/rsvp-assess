@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef } from 'react';
 
 interface IButtonProps extends ComponentPropsWithoutRef<'button'> {}
 function Button({ children, type, ...otherProps }: IButtonProps) {

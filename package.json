@@ -6,7 +6,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage",
-    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "commit": "cz",
     "prepare": "husky install"
   },
