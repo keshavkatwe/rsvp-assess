@@ -1,9 +1,13 @@
+import { useRoutes } from 'react-router-dom';
+import Home from './pages/home/Home';
+
 function App() {
-  return (
-    <div className="App">
-      <h1>learn react</h1>
-    </div>
-  );
+  return useRoutes([
+    {
+      path: '/',
+      element: <Home />,
+    },
+  ]);
 }
 
 export default App;
