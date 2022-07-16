@@ -9,7 +9,7 @@ export const useUserData = (): [
 ] => {
   const { state, dispatch } = useContext(UserStoreContext);
   const dispatchAction = useCallback(
-    (req: IUserDataActions) => dispatch(req),
+    (req: IUserDataActions) => dispatch && dispatch(req),
     [dispatch]
   );
   return [state, dispatchAction];
