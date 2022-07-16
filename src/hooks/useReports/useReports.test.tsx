@@ -24,6 +24,7 @@ describe('should test useReports hook', () => {
         type: 'setList',
         data: [
           {
+            id: 1,
             firstName: 'John',
             lastName: 'Doe',
             profession: 'Student',
@@ -34,6 +35,7 @@ describe('should test useReports hook', () => {
             age: 14,
           },
           {
+            id: 2,
             firstName: 'John',
             lastName: 'Doe',
             profession: 'Student',

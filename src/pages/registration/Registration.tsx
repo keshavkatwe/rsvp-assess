@@ -40,6 +40,7 @@ function Registration() {
     setAllFocus();
     if (isSubmittable) {
       submitUserInfo({
+        id: 1,
         firstName: values.firstName,
         lastName: values.lastName,
         dob: new Date(values.dob),

@@ -12,6 +12,7 @@ describe('should test beeceptor service', () => {
         })
     );
     const res = await submitUserInfo({
+      id: 1,
       firstName: 'John',
       lastName: 'Doe',
       profession: 'Student',

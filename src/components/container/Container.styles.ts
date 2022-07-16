@@ -5,9 +5,11 @@ export const ContainerStyles = styled.div<{
   borderRadius: string;
   padding: string;
   height?: string;
+  margin?: string;
 }>`
   background: ${(props) => props.backgroundColor};
   padding: ${(props) => props.padding};
+  margin: ${(props) => props.margin};
   border-radius: ${(props) => props.borderRadius};
   ${(props) =>
     props.height &&

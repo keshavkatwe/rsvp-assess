@@ -17,6 +17,7 @@ describe('should test userStore', () => {
         type: 'setList',
         data: [
           {
+            id: 1,
             firstName: 'John',
             lastName: 'Doe',
             profession: 'Student',

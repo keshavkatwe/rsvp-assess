@@ -12,6 +12,11 @@ export const ControlCss = css`
   font-weight: 500;
   font-size: 20px;
   height: 50px;
+  background: #36345c;
+
+  ::placeholder {
+    font-weight: 400;
+  }
 `;
 
 export const StyledInput = styled.input`

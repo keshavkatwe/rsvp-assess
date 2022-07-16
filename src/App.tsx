@@ -1,7 +1,6 @@
 import { useRoutes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Registration from './pages/registration/Registration';
-import Search from './pages/search/search';
 import Reports from './pages/reports/reports';
 
 function App() {
@@ -13,10 +12,6 @@ function App() {
     {
       path: '/home',
       element: <Home />,
-    },
-    {
-      path: '/search',
-      element: <Search />,
     },
     {
       path: '/reports',
