@@ -9,5 +9,8 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${defaultBackground};
     color: ${whiteColor};
   }
+  *{
+    box-sizing: border-box;
+  }
 `;
 export default GlobalStyle;

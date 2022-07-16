@@ -1,5 +1,5 @@
 import FlexBox from 'components/flexbox/FlexBox';
-import { FormEvent } from 'react';
+import { FormEvent, useEffect } from 'react';
 import Container from '../../components/container/Container';
 import InputBox from '../../components/inputBox/InputBox';
 import RadioButtons from '../../components/radioButtons/RadioButtons';
@@ -62,6 +62,21 @@ function Registration() {
       });
     }
   };
+
+  const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+    e.preventDefault();
+    const message =
+      'Are you sure you want to leave? All provided data will be lost.';
+    e.returnValue = message;
+    return message;
+  };
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
 
   return (
     <FlexBox display="flex" direction="column" isFullHeight>
