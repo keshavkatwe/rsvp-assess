@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getUsersList } from '../../services/mockarooService/mockarooService';
 import { useUserData } from '../../store/userStore/userStore';
+import Button from '../../components/button/Button';
 
 function Home() {
   const [userList, setUserList] = useUserData();
   const [isFirstTime, setIsFirstTime] = useState(true);
+  const navigate = useNavigate();
 
   const fetchUserList = useCallback(async () => {
     const { data } = await getUsersList();
@@ -23,6 +26,13 @@ function Home() {
 
   return (
     <>
+      <Button
+        onClick={() => {
+          navigate('/search');
+        }}
+      >
+        Search
+      </Button>
       {userList.users.map((value) => (
         <>
           <h1
