@@ -1,11 +1,20 @@
 import { ComponentPropsWithoutRef } from 'react';
 import { StyledInput } from './InputBox.styles';
 import Typography from '../typography/Typography';
+import {
+  secondaryBackground,
+  secondaryBackground3,
+} from '../../constants/colors';
 
 interface IInputBoxProps extends ComponentPropsWithoutRef<'input'> {
   label?: string;
+  color?: 'primary' | 'dark';
 }
-function InputBox({ label, ...otherProps }: IInputBoxProps) {
+function InputBox({ label, color = 'primary', ...otherProps }: IInputBoxProps) {
+  const colors = {
+    primary: secondaryBackground3,
+    dark: secondaryBackground,
+  };
   return (
     <>
       {label && (
@@ -14,7 +23,7 @@ function InputBox({ label, ...otherProps }: IInputBoxProps) {
         </Typography>
       )}
 
-      <StyledInput {...otherProps} />
+      <StyledInput {...otherProps} background={colors[color]} />
     </>
   );
 }

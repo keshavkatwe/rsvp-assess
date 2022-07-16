@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { StyledTypography } from './typography.styles';
+import { StyledTypography } from './Typography.styles';
 import { defaultTextColor, textColor2 } from '../../constants/colors';
 
 type ITypographySizes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';

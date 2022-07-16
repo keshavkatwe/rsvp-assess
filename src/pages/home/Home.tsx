@@ -45,6 +45,7 @@ function Home() {
       </Typography>
       <Container>
         <InputBox
+          color="dark"
           placeholder="Search users"
           value={keyword}
           onChange={(event) => setKeyword(event.target.value)}

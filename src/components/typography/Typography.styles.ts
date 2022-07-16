@@ -11,4 +11,6 @@ export const StyledTypography = styled.h1<{
   margin: ${(props) => props.margin};
   text-align: ${(props) => props.align};
   font-weight: 400;
+  display: inline-block;
+  width: 100%;
 `;
