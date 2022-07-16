@@ -1,7 +1,68 @@
 import FlexBox from 'components/flexbox/FlexBox';
+import { FormEvent } from 'react';
 import Container from '../../components/container/Container';
+import InputBox from '../../components/inputBox/InputBox';
+import RadioButtons from '../../components/radioButtons/RadioButtons';
+import TextArea from '../../components/textArea/TextArea';
+import Button from '../../components/button/Button';
+import useForm from '../../hooks/useForm/useForm';
+import ValidationBox from '../../components/validationBox/ValidationBox';
+import { submitUserInfo } from '../../services/beeceptorService/beeceptorService';
 
 function Registration() {
+  const {
+    values,
+    setValue,
+    validationErrors,
+    setFocus,
+    isSubmittable,
+    setAllFocus,
+  } = useForm(
+    {
+      firstName: '',
+      lastName: '',
+      dob: '',
+      profession: '',
+      locality: '',
+      noOfGuest: '',
+      address: '',
+    },
+    {
+      firstName: {
+        rules: {
+          isRequired: true,
+        },
+        messages: {
+          isRequired: 'Please enter first name',
+        },
+      },
+      lastName: {
+        rules: {
+          isRequired: true,
+        },
+        messages: {
+          isRequired: 'Please enter last name',
+        },
+      },
+    }
+  );
+
+  const submitForm = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setAllFocus();
+    if (isSubmittable) {
+      submitUserInfo({
+        firstName: values.firstName,
+        lastName: values.lastName,
+        dob: new Date(),
+        address: values.address,
+        locality: values.locality,
+        noOfGuest: +values.noOfGuest,
+        profession: values.profession,
+      });
+    }
+  };
+
   return (
     <FlexBox display="flex" direction="column" isFullHeight>
       <Container>
@@ -15,7 +76,56 @@ function Registration() {
           backgroundColor="secondaryBackground"
           height="100%"
         >
-          Hello
+          <form onSubmit={submitForm}>
+            <ValidationBox error={validationErrors.firstName}>
+              <InputBox
+                data-testid="firstNameInput"
+                placeholder="First name"
+                value={values.firstName}
+                onChange={setValue('firstName')}
+                onBlur={setFocus('firstName')}
+              />
+            </ValidationBox>
+            <ValidationBox error={validationErrors.lastName}>
+              <InputBox
+                data-testid="lastNameInput"
+                placeholder="Last name"
+                value={values.lastName}
+                onChange={setValue('lastName')}
+                onBlur={setFocus('lastName')}
+              />
+            </ValidationBox>
+            <InputBox
+              data-testid="dobInput"
+              placeholder="Date of birth"
+              value={values.dob}
+              onChange={setValue('dob')}
+            />
+            <InputBox placeholder="Age" />
+            <RadioButtons
+              possibleValues={['Employed', 'Student']}
+              value={values.profession}
+              onChange={setValue('profession')}
+            />
+            <InputBox
+              data-testid="localityInput"
+              placeholder="Locality"
+              value={values.locality}
+              onChange={setValue('locality')}
+            />
+            <RadioButtons
+              possibleValues={['1', '2']}
+              onChange={setValue('noOfGuest')}
+              value={values.noOfGuest}
+            />
+            <TextArea
+              data-testid="addressInput"
+              value={values.address}
+              onChange={setValue('address')}
+            />
+
+            <Button data-testid="submitButton">Submit</Button>
+          </form>
         </Container>
       </FlexBox>
     </FlexBox>
