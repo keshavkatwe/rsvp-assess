@@ -1,11 +1,12 @@
 import { ComponentPropsWithoutRef } from 'react';
+import { StyledButton } from './Button.styles';
 
 interface IButtonProps extends ComponentPropsWithoutRef<'button'> {}
 function Button({ children, ...otherProps }: IButtonProps) {
   return (
-    <button type="submit" {...otherProps}>
+    <StyledButton type="submit" {...otherProps}>
       {children}
-    </button>
+    </StyledButton>
   );
 }
 export default Button;

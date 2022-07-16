@@ -21,7 +21,7 @@ function Search() {
   return (
     <>
       <InputBox
-        placeholder="Search"
+        label="Search"
         value={keyword}
         onChange={(event) => setKeyword(event.target.value)}
         data-testid="input-search"

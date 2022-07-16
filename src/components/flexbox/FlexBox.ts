@@ -5,6 +5,7 @@ interface IFlexBoxProps {
   flexGrow?: number;
   direction?: 'row' | 'column';
   isFullHeight?: boolean;
+  width?: string;
 }
 
 const FlexBox = styled.div<IFlexBoxProps>`
@@ -15,6 +16,11 @@ const FlexBox = styled.div<IFlexBoxProps>`
     props.isFullHeight &&
     `
   height: 100vh;
+  `}
+  ${(props) =>
+    props.width &&
+    `
+  width: ${props.width};
   `}
 `;
 export default FlexBox;
