@@ -28,6 +28,7 @@ describe('should test search', () => {
             locality: 'Delhi',
             noOfGuest: 1,
             address: '018 Maple Wood Hill',
+            age: 18,
           },
           {
             firstName: 'Karlan',
@@ -37,6 +38,7 @@ describe('should test search', () => {
             locality: 'Mumbai',
             noOfGuest: 2,
             address: '28630 Fulton Crossing',
+            age: 18,
           },
         ],
       });

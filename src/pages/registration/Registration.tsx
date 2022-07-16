@@ -5,7 +5,7 @@ import InputBox from '../../components/inputBox/InputBox';
 import RadioButtons from '../../components/radioButtons/RadioButtons';
 import TextArea from '../../components/textArea/TextArea';
 import Button from '../../components/button/Button';
-import useForm from '../../libs/useForm/useForm';
+import useForm from '../../hooks/useForm/useForm';
 import ValidationBox from '../../components/validationBox/ValidationBox';
 import { submitUserInfo } from '../../services/beeceptorService/beeceptorService';
 
@@ -59,6 +59,7 @@ function Registration() {
         locality: values.locality,
         noOfGuest: +values.noOfGuest,
         profession: values.profession,
+        age: 18,
       });
     }
   };

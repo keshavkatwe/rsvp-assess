@@ -24,6 +24,7 @@ describe('should test userStore', () => {
             locality: 'India',
             dob: new Date(),
             address: 'aa',
+            age: 12,
           },
         ],
       });

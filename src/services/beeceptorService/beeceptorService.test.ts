@@ -19,6 +19,7 @@ describe('should test beeceptor service', () => {
       locality: 'India',
       dob: new Date(),
       address: 'aa',
+      age: 12,
     });
     expect(res).toBeTruthy();
   });

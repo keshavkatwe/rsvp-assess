@@ -2,6 +2,7 @@ import { useRoutes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Registration from './pages/registration/Registration';
 import Search from './pages/search/search';
+import Reports from './pages/reports/reports';
 
 function App() {
   return useRoutes([
@@ -16,6 +17,10 @@ function App() {
     {
       path: '/search',
       element: <Search />,
+    },
+    {
+      path: '/reports',
+      element: <Reports />,
     },
   ]);
 }

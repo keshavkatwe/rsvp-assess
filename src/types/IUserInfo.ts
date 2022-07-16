@@ -1,4 +1,5 @@
 export interface IUserInfo {
+  age: number;
   firstName: string;
   lastName: string;
   dob: Date;
