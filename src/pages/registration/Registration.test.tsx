@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import Registration from './Registration';
 
 const typeInDom = (testId: string, value?: string | number) => {
@@ -16,7 +17,11 @@ const typeInDom = (testId: string, value?: string | number) => {
 
 describe('should test registration page', () => {
   it('should render page', () => {
-    render(<Registration />);
+    render(
+      <BrowserRouter>
+        <Registration />
+      </BrowserRouter>
+    );
     const buttonDom = screen.getByTestId('submitButton');
     fireEvent.click(buttonDom);
 

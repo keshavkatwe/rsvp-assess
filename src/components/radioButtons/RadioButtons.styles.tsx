@@ -10,6 +10,7 @@ export const StyledRadioContainer = styled.div`
 `;
 export const StyledItem = styled.div`
   width: calc(50% - 5px);
+  height: 50px;
 `;
 export const StyledLabel = styled.label<{ isActive: boolean }>`
   width: 100%;

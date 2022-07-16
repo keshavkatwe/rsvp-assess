@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ValidationContainer } from './validationBox.styles';
+import { ValidationContainer, ValidationText } from './validationBox.styles';
 
 interface IValidationBoxProps {
   error?: string;
@@ -9,7 +9,9 @@ function ValidationBox({ error, children }: IValidationBoxProps) {
   return (
     <ValidationContainer>
       {children}
-      {error && <h3 data-testid="errorText">{error}</h3>}
+      {error && (
+        <ValidationText data-testid="errorText">{error}</ValidationText>
+      )}
     </ValidationContainer>
   );
 }

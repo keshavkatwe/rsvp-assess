@@ -1,5 +1,6 @@
 import FlexBox from 'components/flexbox/FlexBox';
-import { FormEvent } from 'react';
+import { FormEvent, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Container from '../../components/container/Container';
 import InputBox from '../../components/inputBox/InputBox';
 import RadioButtons from '../../components/radioButtons/RadioButtons';
@@ -9,8 +10,11 @@ import useForm from '../../hooks/useForm/useForm';
 import ValidationBox from '../../components/validationBox/ValidationBox';
 import { submitUserInfo } from '../../services/beeceptorService/beeceptorService';
 import Typography from '../../components/typography/Typography';
+import validations from './validations';
+import calculateAge from '../../helpers/calculateAge/calculateAge';
 
 function Registration() {
+  const navigate = useNavigate();
   const {
     values,
     setValue,
@@ -28,24 +32,7 @@ function Registration() {
       noOfGuest: '',
       address: '',
     },
-    {
-      firstName: {
-        rules: {
-          isRequired: true,
-        },
-        messages: {
-          isRequired: 'Please enter first name',
-        },
-      },
-      lastName: {
-        rules: {
-          isRequired: true,
-        },
-        messages: {
-          isRequired: 'Please enter last name',
-        },
-      },
-    }
+    validations
   );
 
   const submitForm = (event: FormEvent<HTMLFormElement>) => {
@@ -55,15 +42,22 @@ function Registration() {
       submitUserInfo({
         firstName: values.firstName,
         lastName: values.lastName,
-        dob: new Date(),
+        dob: new Date(values.dob),
         address: values.address,
         locality: values.locality,
         noOfGuest: +values.noOfGuest,
         profession: values.profession,
         age: 18,
-      });
+      }).then(() => navigate('/home'));
     }
   };
+
+  const userAge = useMemo(() => {
+    if (values.dob) {
+      return calculateAge(values.dob);
+    }
+    return '';
+  }, [values.dob]);
 
   // const handleBeforeUnload = (e: BeforeUnloadEvent) => {
   //   e.preventDefault();
@@ -126,6 +120,7 @@ function Registration() {
               <FlexBox display="flex">
                 <FlexBox display="flex" direction="column" flexGrow={2}>
                   <InputBox
+                    type="date"
                     data-testid="dobInput"
                     label="Date of birth"
                     value={values.dob}
@@ -139,12 +134,12 @@ function Registration() {
                   flexGrow={1}
                   width="200px"
                 >
-                  <InputBox label="Age" readOnly />
+                  <InputBox label="Age" value={userAge} readOnly />
                 </FlexBox>
               </FlexBox>
             </ValidationBox>
 
-            <ValidationBox>
+            <ValidationBox error={validationErrors.profession}>
               <RadioButtons
                 label="Profession"
                 possibleValues={['Employed', 'Student']}
@@ -152,7 +147,7 @@ function Registration() {
                 onChange={setValue('profession')}
               />
             </ValidationBox>
-            <ValidationBox>
+            <ValidationBox error={validationErrors.locality}>
               <InputBox
                 data-testid="localityInput"
                 label="Locality"
@@ -160,7 +155,7 @@ function Registration() {
                 onChange={setValue('locality')}
               />
             </ValidationBox>
-            <ValidationBox>
+            <ValidationBox error={validationErrors.noOfGuest}>
               <RadioButtons
                 label="No of guests"
                 possibleValues={['1', '2']}
@@ -168,7 +163,7 @@ function Registration() {
                 value={values.noOfGuest}
               />
             </ValidationBox>
-            <ValidationBox>
+            <ValidationBox error={validationErrors.address}>
               <TextArea
                 label="Address"
                 data-testid="addressInput"
