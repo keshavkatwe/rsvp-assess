@@ -26,7 +26,7 @@ function Search() {
         onChange={(event) => setKeyword(event.target.value)}
         data-testid="input-search"
       />
-      {filteredList.map((value, index) => (
+      {filteredList.map((value) => (
         <Fragment key={value.firstName}>
           <h1
             data-testid={`nameTest_${value.firstName}`}
