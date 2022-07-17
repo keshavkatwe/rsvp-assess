@@ -30,7 +30,7 @@ yarn commit
 
 ## Technologies Covered:
 - React18 - This is a rendering engine.
-- React router - Used for multi page application and routing.
+- React router - Used for multipage application and routing.
 - Typescript - To define a strict typing.
 - Eslint - To follow style pattern, Airbnb is used.
 - Prettier - To follow proper spacing, indentation etc.
