@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1000" height="1000" viewBox="0 0 1000 1000" xml:space="preserve">
+<desc>Created with Fabric.js 3.5.0</desc>
+<defs>
+</defs>
+<g transform="matrix(34.4483 0 0 34.4483 499.9998 499.9998)" id="116706">
+<g style="" vector-effect="non-scaling-stroke">
+		<g transform="matrix(1 0 0 1 -0.1469 2.205)" id="c14_house">
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; is-custom-font: none; font-file-url: none; fill: rgb(246,105,7); fill-rule: nonzero; opacity: 1;" transform=" translate(-13.048, -15.4)" d="M 3.588 24.297 c 0 0 -0.024 0.59 0.553 0.59 c 0.718 0 6.652 -0.008 6.652 -0.008 l 0.01 -5.451 c 0 0 -0.094 -0.898 0.777 -0.898 h 2.761 c 1.031 0 0.968 0.898 0.968 0.898 l -0.012 5.434 c 0 0 5.628 0 6.512 0 c 0.732 0 0.699 -0.734 0.699 -0.734 V 14.076 L 13.33 5.913 l -9.742 8.164 C 3.588 14.077 3.588 24.297 3.588 24.297 z" stroke-linecap="round"/>
+</g>
+		<g transform="matrix(1 0 0 1 0 -5.4458)" id="c14_house">
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; is-custom-font: none; font-file-url: none; fill: rgb(246,105,7); fill-rule: nonzero; opacity: 1;" transform=" translate(-13.195, -7.7492)" d="M 0 13.317 c 0 0 0.826 1.524 2.631 0 l 10.781 -9.121 l 10.107 9.064 c 2.088 1.506 2.871 0 2.871 0 L 13.412 1.504 L 0 13.317 z" stroke-linecap="round"/>
+</g>
+		<g transform="matrix(1 0 0 1 8.7785 -6.345)" id="c14_house">
+<polygon style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; is-custom-font: none; font-file-url: none; fill: rgb(246,105,7); fill-rule: nonzero; opacity: 1;" points="1.2995,-2.675 -1.2995,-2.675 -1.2885,0.478 1.2995,2.675 "/>
+</g>
+</g>
+</g>
+</svg>
