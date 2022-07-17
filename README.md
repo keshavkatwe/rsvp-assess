@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+# RSVP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Meetup RSVP App
 
-## Available Scripts
+[Details Here](https://gist.github.com/ws7one/97b03dd34d20617bd03af1e6d8e349ce)
 
-In the project directory, you can run:
+### Perform below commands to set up dev env and run project.
 
-### `npm start`
+```shell
+yarn install
+yarn start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### For production build run below command
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```shell
+yarn Build
+```
+This will create `build` folder which can be host anywhere.
 
-### `npm test`
+### For testing the app please run below command
+```shell
+yarn test
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### To commit anything please use below command
+```shell
+yarn commit
+```
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technologies Covered:
+- React18 - This is a rendering engine.
+- React router - Used for multi page application and routing.
+- Typescript - To define a strict typing.
+- Eslint - To follow style pattern, Airbnb is used.
+- Prettier - To follow proper spacing, indentation etc.
+- Jest - Used for jest runner.
+- React Testing Library - Used to test react components
+- Commitizen - This should commit interface.
+- Commitlint - This lints commit messages.
+- Google charts - Used to show graphs.
+- Styled components - This used has a css preprocess and css-in-js.
+- Husky - Used to perform some precommit actions
+- Lint staged - This is used to perform actions on staged files.
