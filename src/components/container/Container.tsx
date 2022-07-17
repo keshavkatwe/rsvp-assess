@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { ContainerStyles } from './Container.styles';
 import {
   secondaryBackground,
@@ -6,7 +6,7 @@ import {
   transparent,
 } from '../../constants/colors';
 
-interface IContainerProps {
+interface IContainerProps extends ComponentPropsWithoutRef<'div'> {
   children: ReactNode;
   padding?: string;
   backgroundColor?:
@@ -31,6 +31,7 @@ function Container({
   borderRadius = [0],
   height,
   margin,
+  ...otherProps
 }: IContainerProps) {
   return (
     <ContainerStyles
@@ -39,6 +40,7 @@ function Container({
       borderRadius={borderRadius.map((item) => `${item}px`).join(' ')}
       height={height}
       margin={margin?.map((value) => `${value}px`).join(' ')}
+      {...otherProps}
     >
       {children}
     </ContainerStyles>

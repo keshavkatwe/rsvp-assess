@@ -1,12 +1,12 @@
 import { render } from '@testing-library/react';
-import Modal from './modal';
+import BottomSheet from './bottomSheet';
 
 describe('should test modal', () => {
   it('should render modal', () => {
-    render(<Modal isShow>Hello</Modal>);
+    render(<BottomSheet isShow>Hello</BottomSheet>);
   });
 
   it('should not show modal', () => {
-    render(<Modal isShow={false}>Hello</Modal>);
+    render(<BottomSheet isShow={false}>Hello</BottomSheet>);
   });
 });

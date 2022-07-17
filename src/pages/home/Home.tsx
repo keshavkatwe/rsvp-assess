@@ -7,11 +7,16 @@ import Typography from '../../components/typography/Typography';
 import InputBox from '../../components/inputBox/InputBox';
 import Container from '../../components/container/Container';
 import UserItem from '../../components/userItem/UserItem';
+import BottomSheet from '../../components/bottomSheet/bottomSheet';
+import UserDetails from '../../components/userDetails/UserDetails';
+import { IUserInfo } from '../../types/IUserInfo';
 
 function Home() {
   const [userList, setUserList] = useUserData();
   const [isFirstTime, setIsFirstTime] = useState(true);
   const [keyword, setKeyword] = useState('');
+  const [selectedUser, setSelectedUser] = useState<IUserInfo>();
+  const [isShowBottomSheet, setIsShowBottomSheet] = useState(false);
 
   const fetchUserList = useCallback(async () => {
     const { data } = await getUsersList();
@@ -60,6 +65,10 @@ function Home() {
             lastName={value.lastName}
             locality={value.locality}
             icon={value.profession === 'Student' ? studentIcon : employeeIcon}
+            onClick={() => {
+              setSelectedUser(value);
+              setIsShowBottomSheet(true);
+            }}
           />
         ))}
         {filteredList.length === 0 && (
@@ -68,7 +77,25 @@ function Home() {
           </Typography>
         )}
       </Container>
+      <BottomSheet
+        isShow={isShowBottomSheet}
+        onClose={() => setIsShowBottomSheet(false)}
+      >
+        {selectedUser && (
+          <UserDetails
+            firstName={selectedUser.firstName}
+            lastName={selectedUser.lastName}
+            locality={selectedUser.locality}
+            address={selectedUser.address}
+            age={selectedUser.age}
+            dob={selectedUser.dob.toString()}
+            profession={selectedUser.profession}
+            noOfGuests={selectedUser.noOfGuest}
+          />
+        )}
+      </BottomSheet>
     </>
   );
 }
+
 export default Home;

@@ -8,14 +8,22 @@ interface IUserItemProps {
   lastName: string;
   locality: string;
   icon?: string;
+  onClick?: () => void;
 }
-function UserItem({ firstName, lastName, locality, icon }: IUserItemProps) {
+function UserItem({
+  firstName,
+  lastName,
+  locality,
+  icon,
+  onClick,
+}: IUserItemProps) {
   return (
     <Container
       backgroundColor="secondaryBackground2"
       padding="16px"
       borderRadius={[10]}
       margin={[20, 0, 0, 0]}
+      onClick={onClick}
     >
       <FlexBox display="flex" justifyContent="space-between">
         <Container padding="0">
