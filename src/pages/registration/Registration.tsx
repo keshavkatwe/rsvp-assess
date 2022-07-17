@@ -1,5 +1,5 @@
 import FlexBox from 'components/flexbox/FlexBox';
-import { FormEvent, useCallback, useEffect, useMemo } from 'react';
+import { FormEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from '../../components/container/Container';
 import InputBox from '../../components/inputBox/InputBox';
@@ -14,6 +14,7 @@ import validations from './validations';
 import calculateAge from '../../helpers/calculateAge/calculateAge';
 
 function Registration() {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const {
     values,
@@ -40,6 +41,7 @@ function Registration() {
     event.preventDefault();
     setAllFocus();
     if (isSubmittable) {
+      setIsLoading(true);
       submitUserInfo({
         id: 1,
         firstName: values.firstName,
@@ -50,7 +52,9 @@ function Registration() {
         noOfGuest: values.noOfGuest as unknown as 1 | 2,
         profession: values.profession as 'Student' | 'Employed',
         age: 18,
-      }).then(() => navigate('/home'));
+      })
+        .then(() => navigate('/home'))
+        .catch(() => setIsLoading(false));
     }
   };
 
@@ -179,7 +183,9 @@ function Registration() {
               />
             </ValidationBox>
 
-            <Button data-testid="submitButton">Submit</Button>
+            <Button isLoading={isLoading} data-testid="submitButton">
+              Submit
+            </Button>
           </form>
         </Container>
       </FlexBox>

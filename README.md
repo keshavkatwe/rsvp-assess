@@ -50,3 +50,11 @@ yarn commit
 - Styled components - This used has a css preprocess and css-in-js.
 - Husky - Used to perform some precommit actions
 - Lint staged - This is used to perform actions on staged files.
+
+## Ref
+Design Ref: https://www.uplabs.com/posts/job-finder-app-dark-vol-01
+
+Icons:
+- https://fontawesomeicons.com/svg/icons/student-fill
+- https://www.svgrepo.com/svg/26335/employee
+- https://www.svgrepo.com/
