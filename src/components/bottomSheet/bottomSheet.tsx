@@ -14,7 +14,10 @@ function BottomSheet({ children, isShow, onClose }: IModalProps) {
   if (isShow) {
     return (
       <BottomSheetMain>
-        <BottomSheetOverlay onClick={onClose} />
+        <BottomSheetOverlay
+          onClick={onClose}
+          data-testid="bottom-sheet-overylay"
+        />
         <BottomSheetContainer>{children}</BottomSheetContainer>
       </BottomSheetMain>
     );

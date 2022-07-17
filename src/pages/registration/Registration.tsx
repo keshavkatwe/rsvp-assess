@@ -1,5 +1,5 @@
 import FlexBox from 'components/flexbox/FlexBox';
-import { FormEvent, useMemo } from 'react';
+import { FormEvent, useCallback, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from '../../components/container/Container';
 import InputBox from '../../components/inputBox/InputBox';
@@ -22,6 +22,7 @@ function Registration() {
     setFocus,
     isSubmittable,
     setAllFocus,
+    isFormTouched,
   } = useForm(
     {
       firstName: '',
@@ -60,20 +61,25 @@ function Registration() {
     return '';
   }, [values.dob]);
 
-  // const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-  //   e.preventDefault();
-  //   const message =
-  //     'Are you sure you want to leave? All provided data will be lost.';
-  //   e.returnValue = message;
-  //   return message;
-  // };
-  //
-  // useEffect(() => {
-  //   window.addEventListener('beforeunload', handleBeforeUnload);
-  //   return () => {
-  //     window.removeEventListener('beforeunload', handleBeforeUnload);
-  //   };
-  // }, []);
+  const handleBeforeUnload = useCallback(
+    (e: BeforeUnloadEvent) => {
+      if (isFormTouched) {
+        e.preventDefault();
+      }
+      const message =
+        'Are you sure you want to leave? All provided data will be lost.';
+      e.returnValue = message;
+      return message;
+    },
+    [isFormTouched]
+  );
+
+  useEffect(() => {
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [handleBeforeUnload]);
 
   return (
     <FlexBox display="flex" direction="column" isFullHeight>

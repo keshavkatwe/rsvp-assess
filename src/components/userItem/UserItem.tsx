@@ -19,6 +19,7 @@ function UserItem({
 }: IUserItemProps) {
   return (
     <Container
+      data-testid={`user-item-${firstName}`}
       backgroundColor="secondaryBackground2"
       padding="16px"
       borderRadius={[10]}

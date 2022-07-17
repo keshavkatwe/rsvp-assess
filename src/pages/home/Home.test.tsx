@@ -1,27 +1,19 @@
 import { fireEvent, renderHook, screen } from '@testing-library/react';
 import { ReactNode } from 'react';
 import { act } from 'react-dom/test-utils';
+import { BrowserRouter } from 'react-router-dom';
 import Home from './Home';
 import UserStoreProvider from '../../store/userStore/userStoreProvider';
 import { useUserData } from '../../store/userStore/userStore';
 
 describe('test home page', () => {
   it('should render search page', async () => {
-    // global.fetch = jest.fn().mockImplementationOnce(
-    //   () =>
-    //     new Promise((resolve) => {
-    //       resolve({
-    //         ok: true,
-    //         json: () => ({
-    //           data: [],
-    //         }),
-    //       });
-    //     })
-    // );
     const wrapper = ({ children }: { children: ReactNode }) => (
       <UserStoreProvider>
-        {children}
-        <Home />
+        <BrowserRouter>
+          {children}
+          <Home />
+        </BrowserRouter>
       </UserStoreProvider>
     );
 
@@ -71,5 +63,11 @@ describe('test home page', () => {
 
     const item2 = screen.queryByText('nameTest_Karlan');
     expect(item2).not.toBeInTheDocument();
+
+    const userItem = screen.getByTestId('user-item-Dunstan');
+    fireEvent.click(userItem);
+
+    const overlay = screen.getByTestId('bottom-sheet-overylay');
+    fireEvent.click(overlay);
   });
 });

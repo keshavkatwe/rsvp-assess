@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import employeeIcon from 'assets/employee.svg';
 import studentIcon from 'assets/student-thin.svg';
+import { useNavigate } from 'react-router-dom';
 import { getUsersList } from '../../services/mockarooService/mockarooService';
 import { useUserData } from '../../store/userStore/userStore';
 import Typography from '../../components/typography/Typography';
@@ -10,6 +11,7 @@ import UserItem from '../../components/userItem/UserItem';
 import BottomSheet from '../../components/bottomSheet/bottomSheet';
 import UserDetails from '../../components/userDetails/UserDetails';
 import { IUserInfo } from '../../types/IUserInfo';
+import NavTabs from '../../components/navTabs/NavTabs';
 
 function Home() {
   const [userList, setUserList] = useUserData();
@@ -17,6 +19,7 @@ function Home() {
   const [keyword, setKeyword] = useState('');
   const [selectedUser, setSelectedUser] = useState<IUserInfo>();
   const [isShowBottomSheet, setIsShowBottomSheet] = useState(false);
+  const navigate = useNavigate();
 
   const fetchUserList = useCallback(async () => {
     const { data } = await getUsersList();
@@ -94,6 +97,10 @@ function Home() {
           />
         )}
       </BottomSheet>
+      <NavTabs
+        activePage="home"
+        onClick={(page) => navigate(`/${page}`, { replace: true })}
+      />
     </>
   );
 }

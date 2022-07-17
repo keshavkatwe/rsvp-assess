@@ -9,6 +9,7 @@ function useForm<Values extends Record<string, unknown>>(
   const [touchList, setTouchList] = useState<IValueBoolean<Values>>({});
   const [errorList, setErrorList] = useState<IValueMessage<Values>>({});
   const [isFirstLoad, setFirstLoad] = useState(true);
+  const [isFormTouched, setIsFormTouched] = useState(false);
 
   const validationErrors = useMemo(() => {
     const newValidationErrors: IValueMessage<Values> = {};
@@ -81,6 +82,7 @@ function useForm<Values extends Record<string, unknown>>(
         | string
         | number
     ) => {
+      setIsFormTouched(true);
       let finalVal: string | number = '';
       if (typeof event === 'string' || typeof event === 'number') {
         finalVal = event;
@@ -116,6 +118,7 @@ function useForm<Values extends Record<string, unknown>>(
     validationErrors,
     isSubmittable,
     setAllFocus,
+    isFormTouched,
   };
 }
 export default useForm;

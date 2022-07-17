@@ -1,13 +1,16 @@
 import Chart from 'react-google-charts';
 import FlexBox from 'components/flexbox/FlexBox';
+import { useNavigate } from 'react-router-dom';
 import useReports from '../../hooks/useReports/useReports';
 import Typography from '../../components/typography/Typography';
 import Container from '../../components/container/Container';
 import { BigNumber } from './reports.styles';
+import NavTabs from '../../components/navTabs/NavTabs';
 
 function Reports() {
   const { ageRange, numberByLocalities, professions, avgGroupSize } =
     useReports();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -125,6 +128,10 @@ function Reports() {
           </Typography>
         </Container>
       </Container>
+      <NavTabs
+        activePage="reports"
+        onClick={(page) => navigate(`/${page}`, { replace: true })}
+      />
     </>
   );
 }
