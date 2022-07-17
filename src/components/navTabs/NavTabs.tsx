@@ -1,7 +1,7 @@
 import homeWhite from 'assets/homeWhite.svg';
-import reportWhite from 'assets/reportWhite.svg';
+import reportWhite from 'assets/pieWhite.svg';
 import homeActive from 'assets/homeActive.svg';
-import reportActive from 'assets/reportActive.svg';
+import reportActive from 'assets/pieActive.svg';
 import { StyledButton, StyledContainer, StyledContent } from './NavTabs.styles';
 import Icon from '../icon/Icon';
 
