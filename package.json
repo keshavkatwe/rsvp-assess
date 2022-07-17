@@ -79,6 +79,7 @@
     "collectCoverageFrom": [
       "src/**/*.*",
       "!src/index.tsx",
+      "!src/assets/*",
       "!<rootDir>/node_modules/",
       "!<rootDir>/path/to/dir/"
     ],

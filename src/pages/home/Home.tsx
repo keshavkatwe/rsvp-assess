@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import employeeIcon from 'assets/employee.svg';
+import studentIcon from 'assets/student-thin.svg';
 import { getUsersList } from '../../services/mockarooService/mockarooService';
 import { useUserData } from '../../store/userStore/userStore';
 import Typography from '../../components/typography/Typography';
@@ -57,6 +59,7 @@ function Home() {
             firstName={value.firstName}
             lastName={value.lastName}
             locality={value.locality}
+            icon={value.profession === 'Student' ? studentIcon : employeeIcon}
           />
         ))}
         {filteredList.length === 0 && (

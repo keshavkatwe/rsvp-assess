@@ -4,6 +4,7 @@ interface IFlexBoxProps {
   display?: 'flex' | 'inline-flex';
   flexGrow?: number;
   direction?: 'row' | 'column';
+  justifyContent?: 'space-between';
   isFullHeight?: boolean;
   width?: string;
 }
@@ -21,6 +22,12 @@ const FlexBox = styled.div<IFlexBoxProps>`
     props.width &&
     `
   width: ${props.width};
+  `}
+
+  ${(props) =>
+    props.justifyContent &&
+    `
+  justify-content: ${props.justifyContent};
   `}
 `;
 export default FlexBox;

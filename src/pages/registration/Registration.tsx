@@ -46,8 +46,8 @@ function Registration() {
         dob: new Date(values.dob),
         address: values.address,
         locality: values.locality,
-        noOfGuest: +values.noOfGuest,
-        profession: values.profession,
+        noOfGuest: values.noOfGuest as unknown as 1 | 2,
+        profession: values.profession as 'Student' | 'Employed',
         age: 18,
       }).then(() => navigate('/home'));
     }

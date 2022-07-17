@@ -4,8 +4,8 @@ export interface IUserInfo {
   firstName: string;
   lastName: string;
   dob: Date;
-  profession: string;
+  profession: 'Employed' | 'Student';
   locality: string;
-  noOfGuest: number;
+  noOfGuest: 1 | 2;
   address: string;
 }
