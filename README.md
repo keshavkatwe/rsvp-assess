@@ -4,6 +4,13 @@ Meetup RSVP App
 
 [Details Here](https://gist.github.com/ws7one/97b03dd34d20617bd03af1e6d8e349ce)
 
+Demo: [https://keshavkatwe.github.io/rsvp-assess/](https://keshavkatwe.github.io/rsvp-assess/)
+
+## Scan here to check in phone
+
+<img src="/Users/keshavkatwe/Documents/keshav/rsvp/public/qrcode.png" width="150"/>
+
+
 ### Perform below commands to set up dev env and run project.
 
 ```shell
@@ -27,6 +34,7 @@ yarn test
 ```shell
 yarn commit
 ```
+
 
 ## Technologies Covered:
 - React18 - This is a rendering engine.
