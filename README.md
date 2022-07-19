@@ -8,7 +8,7 @@ Demo: [https://keshavkatwe.github.io/rsvp-assess/](https://keshavkatwe.github.io
 
 ## Scan here to check in phone
 
-<img src="/Users/keshavkatwe/Documents/keshav/rsvp/public/qrcode.png" width="150"/>
+<img src="https://keshavkatwe.github.io/rsvp-assess//qrcode.png" width="150"/>
 
 
 ### Perform below commands to set up dev env and run project.
